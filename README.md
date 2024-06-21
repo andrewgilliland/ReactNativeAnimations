@@ -1,4 +1,4 @@
-# Welcome to your Expo app 👋
+# React Native Animations 🎨
 
 This is a React Native (Expo) app that compares different animations libraries.
 
