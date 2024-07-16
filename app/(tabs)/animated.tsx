@@ -7,7 +7,7 @@ import ParallaxScrollView from "../components/ParallaxScrollView";
 import { ThemedText } from "../components/ThemedText";
 import { ThemedView } from "../components/ThemedView";
 
-export default function ReanimatedScreen() {
+export default function AnimatedScreen() {
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: "#D0D0D0", dark: "#353636" }}
@@ -16,7 +16,7 @@ export default function ReanimatedScreen() {
       }
     >
       <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">React Native Reanimated</ThemedText>
+        <ThemedText type="title">React Native Skia</ThemedText>
       </ThemedView>
       <ThemedText>
         This app includes example code to help you get started.

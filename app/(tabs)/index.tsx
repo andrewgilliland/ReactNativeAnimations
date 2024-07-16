@@ -21,33 +21,32 @@ export default function HomeScreen() {
         <HelloWave />
       </ThemedView>
       <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
         <ThemedText>
-          Edit{" "}
-          <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText>{" "}
-          to see changes. Press{" "}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({ ios: "cmd + d", android: "cmd + m" })}
-          </ThemedText>{" "}
-          to open developer tools.
+          This app was created to explore the features and differences between
+          three React Native animation libraries.
         </ThemedText>
       </ThemedView>
       <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
+        <ThemedText type="subtitle">React Native Animated</ThemedText>
         <ThemedText>
-          Tap the Explore tab to learn more about what's included in this
-          starter app.
+          The Animated library is designed to make animations fluid, powerful,
+          and painless to build and maintain.
         </ThemedText>
       </ThemedView>
       <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
+        <ThemedText type="subtitle">React Native Reanimated</ThemedText>
         <ThemedText>
-          When you're ready, run{" "}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText>{" "}
-          to get a fresh <ThemedText type="defaultSemiBold">app</ThemedText>{" "}
-          directory. This will move the current{" "}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{" "}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
+          With Reanimated, you can easily create smooth animations and
+          interactions that run on the UI thread.
+        </ThemedText>
+      </ThemedView>
+      <ThemedView style={styles.stepContainer}>
+        <ThemedText type="subtitle">React Native Skia</ThemedText>
+        <ThemedText>
+          React Native Skia brings the Skia Graphics Library to React Native.
+          Skia serves as the graphics engine for Google Chrome and Chrome OS,
+          Android, Flutter, Mozilla Firefox and Firefox OS, and many other
+          products.
         </ThemedText>
       </ThemedView>
     </ParallaxScrollView>

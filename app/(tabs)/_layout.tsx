@@ -28,14 +28,11 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="animated"
         options={{
-          title: "Explore",
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon
-              name={focused ? "code-slash" : "code-slash-outline"}
-              color={color}
-            />
+          title: "Animated",
+          tabBarIcon: ({ color }) => (
+            <TabBarIcon name={"logo-react"} color={color} />
           ),
         }}
       />
@@ -46,6 +43,18 @@ export default function TabLayout() {
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon
               name={focused ? "extension-puzzle" : "extension-puzzle-outline"}
+              color={color}
+            />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="skia"
+        options={{
+          title: "Skia",
+          tabBarIcon: ({ color, focused }) => (
+            <TabBarIcon
+              name={focused ? "paper-plane" : "paper-plane-outline"}
               color={color}
             />
           ),
