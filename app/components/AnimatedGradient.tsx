@@ -32,7 +32,7 @@ export const AnimatedGradient = () => {
   useEffect(() => {
     colorsIndex.value = withRepeat(
       withTiming(startColors.length - 1, {
-        duration: 4000,
+        duration: 2000,
       }),
       -1,
       true
@@ -45,7 +45,7 @@ export const AnimatedGradient = () => {
     ];
   });
   return (
-    <Canvas style={{ flex: 1 }}>
+    <Canvas style={{ height: 10, width: 256, marginTop: 32 }}>
       <Fill>
         <LinearGradient
           start={vec(0, 0)}

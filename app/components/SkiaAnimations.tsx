@@ -15,7 +15,7 @@ export const SkiaAnimations = () => {
     r.value = withRepeat(withTiming(size * 0.33, { duration: 1000 }), -1);
   }, [r, size]);
   return (
-    <Canvas style={{ flex: 1 }}>
+    <Canvas style={{ height: 256 }}>
       <Group blendMode="multiply">
         <Circle cx={r} cy={r} r={r} color="cyan" />
         <Circle cx={c} cy={r} r={r} color="magenta" />
