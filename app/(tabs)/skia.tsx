@@ -10,6 +10,7 @@ import SkiaHelloWorld from "../components/SkiaHelloWorld";
 import { SkiaAnimations } from "../components/SkiaAnimations";
 import Animated from "react-native-reanimated";
 import { AnimatedGradient } from "../components/AnimatedGradient";
+import { AnimationWithTouchHandler } from "../components/AnimationWithTouchHandler";
 
 export default function SkiaScreen() {
   return (
@@ -40,20 +41,8 @@ export default function SkiaScreen() {
         <SkiaAnimations />
         <AnimatedGradient />
       </Collapsible>
-      <Collapsible title="Images">
-        <ThemedText>
-          For static images, you can use the{" "}
-          <ThemedText type="defaultSemiBold">@2x</ThemedText> and{" "}
-          <ThemedText type="defaultSemiBold">@3x</ThemedText> suffixes to
-          provide files for different screen densities
-        </ThemedText>
-        <Image
-          source={require("@/assets/images/react-logo.png")}
-          style={{ alignSelf: "center" }}
-        />
-        <ExternalLink href="https://reactnative.dev/docs/images">
-          <ThemedText type="link">Learn more</ThemedText>
-        </ExternalLink>
+      <Collapsible title="Gestures">
+        <AnimationWithTouchHandler />
       </Collapsible>
       <Collapsible title="Custom fonts">
         <ThemedText>
