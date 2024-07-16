@@ -39,6 +39,18 @@ export default function TabLayout() {
           ),
         }}
       />
+      <Tabs.Screen
+        name="reanimated"
+        options={{
+          title: "Reanimated",
+          tabBarIcon: ({ color, focused }) => (
+            <TabBarIcon
+              name={focused ? "extension-puzzle" : "extension-puzzle-outline"}
+              color={color}
+            />
+          ),
+        }}
+      />
     </Tabs>
   );
 }
