@@ -11,6 +11,7 @@ import { SkiaAnimations } from "../components/SkiaAnimations";
 import Animated from "react-native-reanimated";
 import { AnimatedGradient } from "../components/AnimatedGradient";
 import { AnimationWithTouchHandler } from "../components/AnimationWithTouchHandler";
+import { ElementTracking } from "../components/ElementTracking";
 
 export default function SkiaScreen() {
   return (
@@ -43,6 +44,7 @@ export default function SkiaScreen() {
       </Collapsible>
       <Collapsible title="Gestures">
         <AnimationWithTouchHandler />
+        <ElementTracking />
       </Collapsible>
       <Collapsible title="Custom fonts">
         <ThemedText>
