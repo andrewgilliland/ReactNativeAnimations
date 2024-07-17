@@ -12,6 +12,7 @@ import Animated from "react-native-reanimated";
 import { AnimatedGradient } from "../components/AnimatedGradient";
 import { AnimationWithTouchHandler } from "../components/AnimationWithTouchHandler";
 import { ElementTracking } from "../components/ElementTracking";
+import BackgroundGradient from "../components/BackgroundGradient";
 
 export default function SkiaScreen() {
   return (
@@ -47,16 +48,7 @@ export default function SkiaScreen() {
         <ElementTracking />
       </Collapsible>
       <Collapsible title="Custom fonts">
-        <ThemedText>
-          Open <ThemedText type="defaultSemiBold">app/_layout.tsx</ThemedText>{" "}
-          to see how to load{" "}
-          <ThemedText style={{ fontFamily: "SpaceMono" }}>
-            custom fonts such as this one.
-          </ThemedText>
-        </ThemedText>
-        <ExternalLink href="https://docs.expo.dev/versions/latest/sdk/font">
-          <ThemedText type="link">Learn more</ThemedText>
-        </ExternalLink>
+        <BackgroundGradient width={200} height={200} />
       </Collapsible>
       <Collapsible title="Light and dark mode components">
         <ThemedText>
