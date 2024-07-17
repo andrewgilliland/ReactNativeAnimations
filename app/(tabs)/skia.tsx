@@ -47,8 +47,8 @@ export default function SkiaScreen() {
         <AnimationWithTouchHandler />
         <ElementTracking />
       </Collapsible>
-      <Collapsible title="Custom fonts">
-        <BackgroundGradient width={200} height={200} />
+      <Collapsible title="Animated 3D Card">
+        <BackgroundGradient width={300} height={200} />
       </Collapsible>
       <Collapsible title="Light and dark mode components">
         <ThemedText>
