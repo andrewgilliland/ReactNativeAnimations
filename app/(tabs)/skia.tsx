@@ -1,5 +1,5 @@
 import Ionicons from "@expo/vector-icons/Ionicons";
-import { StyleSheet, Image, Platform, View } from "react-native";
+import { StyleSheet, Platform } from "react-native";
 
 import { Collapsible } from "../components/Collapsible";
 import { ExternalLink } from "../components/ExternalLink";
@@ -11,7 +11,7 @@ import { SkiaAnimations } from "../components/SkiaAnimations";
 import { AnimatedGradient } from "../components/AnimatedGradient";
 import { AnimationWithTouchHandler } from "../components/AnimationWithTouchHandler";
 import { ElementTracking } from "../components/ElementTracking";
-import BackgroundGradient from "../components/BackgroundGradient";
+
 import AnimatedCard from "../components/AnimatedCard";
 
 export default function SkiaScreen() {
