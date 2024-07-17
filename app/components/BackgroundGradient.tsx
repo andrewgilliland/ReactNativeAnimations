@@ -1,6 +1,6 @@
-import { StyleSheet } from "react-native";
 import React, { FC } from "react";
 import {
+  BlurMask,
   Canvas,
   RoundedRect,
   SweepGradient,
@@ -12,24 +12,31 @@ type BackgroundGradientProps = {
   height: number;
 };
 
-const BackgroundGradient: FC<BackgroundGradientProps> = ({ width, height }) => {
-  return (
-    <Canvas style={{ width, height }}>
-      <RoundedRect
-        x={0}
-        y={0}
-        r={20}
-        width={width}
-        height={height}
-        color={"white"}
+const BackgroundGradient: FC<BackgroundGradientProps> = React.memo(
+  ({ width, height }) => {
+    const canvasPadding = 30;
+
+    return (
+      <Canvas
+        style={{ width: width + canvasPadding, height: height + canvasPadding }}
       >
-        <SweepGradient
-          c={vec(width / 2, height / 2)}
-          colors={["cyan", "magenta", "yellow", "cyan"]}
-        />
-      </RoundedRect>
-    </Canvas>
-  );
-};
+        <RoundedRect
+          x={canvasPadding / 2}
+          y={canvasPadding / 2}
+          r={20}
+          width={width}
+          height={height}
+          color={"white"}
+        >
+          <SweepGradient
+            c={vec((width + canvasPadding) / 2, (height + canvasPadding) / 2)}
+            colors={["cyan", "magenta", "yellow", "cyan"]}
+          />
+          <BlurMask blur={5} style={"solid"} />
+        </RoundedRect>
+      </Canvas>
+    );
+  }
+);
 
 export default BackgroundGradient;

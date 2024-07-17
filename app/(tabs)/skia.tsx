@@ -1,5 +1,5 @@
 import Ionicons from "@expo/vector-icons/Ionicons";
-import { StyleSheet, Image, Platform } from "react-native";
+import { StyleSheet, Image, Platform, View } from "react-native";
 
 import { Collapsible } from "../components/Collapsible";
 import { ExternalLink } from "../components/ExternalLink";
@@ -8,11 +8,11 @@ import { ThemedText } from "../components/ThemedText";
 import { ThemedView } from "../components/ThemedView";
 import SkiaHelloWorld from "../components/SkiaHelloWorld";
 import { SkiaAnimations } from "../components/SkiaAnimations";
-import Animated from "react-native-reanimated";
 import { AnimatedGradient } from "../components/AnimatedGradient";
 import { AnimationWithTouchHandler } from "../components/AnimationWithTouchHandler";
 import { ElementTracking } from "../components/ElementTracking";
 import BackgroundGradient from "../components/BackgroundGradient";
+import AnimatedCard from "../components/AnimatedCard";
 
 export default function SkiaScreen() {
   return (
@@ -48,7 +48,7 @@ export default function SkiaScreen() {
         <ElementTracking />
       </Collapsible>
       <Collapsible title="Animated 3D Card">
-        <BackgroundGradient width={300} height={200} />
+        <AnimatedCard />
       </Collapsible>
       <Collapsible title="Light and dark mode components">
         <ThemedText>
