@@ -1,7 +1,13 @@
 import { View } from "react-native";
 import React, { FC } from "react";
 import BackgroundGradient from "./BackgroundGradient";
-import { Gesture, GestureDetector } from "react-native-gesture-handler";
+import {
+  Gesture,
+  GestureDetector,
+  GestureStateChangeEvent,
+  GestureUpdateEvent,
+  PanGestureHandlerEventPayload,
+} from "react-native-gesture-handler";
 import {
   interpolate,
   useAnimatedStyle,
@@ -19,29 +25,27 @@ const AnimatedCard: FC<AnimatedCardProps> = () => {
   const cardWidth = width - 5;
   const cardHeight = height - 5;
 
+  const interpolateY = (
+    event:
+      | GestureStateChangeEvent<PanGestureHandlerEventPayload>
+      | GestureUpdateEvent<PanGestureHandlerEventPayload>
+  ) => interpolate(event.y, [0, cardHeight], [10, -10], Extrapolate.CLAMP);
+
+  const interpolateX = (
+    event:
+      | GestureStateChangeEvent<PanGestureHandlerEventPayload>
+      | GestureUpdateEvent<PanGestureHandlerEventPayload>
+  ) => interpolate(event.x, [0, cardWidth], [-10, 10], Extrapolate.CLAMP);
+
   const gesture = Gesture.Pan()
     .onBegin((event) => {
-      rotateX.value = withTiming(
-        interpolate(event.y, [0, cardHeight], [10, -10], Extrapolate.CLAMP)
-      );
-      rotateY.value = withTiming(
-        interpolate(event.x, [0, cardWidth], [-10, 10], Extrapolate.CLAMP)
-      );
+      rotateX.value = withTiming(interpolateY(event));
+      rotateY.value = withTiming(interpolateX(event));
     })
 
     .onUpdate((event) => {
-      rotateX.value = interpolate(
-        event.y,
-        [0, cardHeight],
-        [10, -10],
-        Extrapolate.CLAMP
-      );
-      rotateY.value = interpolate(
-        event.x,
-        [0, cardWidth],
-        [-10, 10],
-        Extrapolate.CLAMP
-      );
+      rotateX.value = interpolateY(event);
+      rotateY.value = interpolateX(event);
     })
     .onFinalize(() => {
       rotateX.value = withTiming(0);
@@ -89,7 +93,45 @@ const AnimatedCard: FC<AnimatedCardProps> = () => {
             },
             rStyle,
           ]}
-        />
+        >
+          <View
+            style={{
+              flexDirection: "row",
+              position: "absolute",
+              bottom: "10%",
+              left: "10%",
+            }}
+          >
+            <View
+              style={{
+                height: 50,
+                aspectRatio: 1,
+                borderRadius: 25,
+                backgroundColor: "#272F46",
+              }}
+            />
+            <View
+              style={{
+                flexDirection: "column",
+                justifyContent: "space-around",
+                marginLeft: 10,
+              }}
+            >
+              {[1, 2].map((_, index) => (
+                <View
+                  key={index}
+                  style={{
+                    height: 20,
+                    width: 80,
+                    backgroundColor: "#272F46",
+                    borderRadius: 25,
+                    marginBottom: 5,
+                  }}
+                />
+              ))}
+            </View>
+          </View>
+        </View>
       </GestureDetector>
     </View>
   );
