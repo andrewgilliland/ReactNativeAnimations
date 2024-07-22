@@ -1,13 +1,7 @@
 import { View } from "react-native";
 import React, { FC } from "react";
-import {
-  Gesture,
-  GestureDetector,
-  GestureStateChangeEvent,
-  GestureUpdateEvent,
-  PanGestureHandlerEventPayload,
-} from "react-native-gesture-handler";
-import {
+import { Gesture, GestureDetector } from "react-native-gesture-handler";
+import Animated, {
   interpolate,
   useAnimatedStyle,
   useSharedValue,
@@ -26,27 +20,29 @@ const GestureCard: FC<GestureCardProps> = ({ width, height }) => {
   const cardWidth = width - 5;
   const cardHeight = height - 5;
 
-  const interpolateY = (
-    event:
-      | GestureStateChangeEvent<PanGestureHandlerEventPayload>
-      | GestureUpdateEvent<PanGestureHandlerEventPayload>
-  ) => interpolate(event.y, [0, cardHeight], [10, -10], Extrapolate.CLAMP);
-
-  const interpolateX = (
-    event:
-      | GestureStateChangeEvent<PanGestureHandlerEventPayload>
-      | GestureUpdateEvent<PanGestureHandlerEventPayload>
-  ) => interpolate(event.x, [0, cardWidth], [-10, 10], Extrapolate.CLAMP);
-
   const gesture = Gesture.Pan()
     .onBegin((event) => {
-      rotateX.value = withTiming(interpolateY(event));
-      rotateY.value = withTiming(interpolateX(event));
+      rotateX.value = withTiming(
+        interpolate(event.y, [0, cardHeight], [10, -10], Extrapolate.CLAMP)
+      );
+      rotateY.value = withTiming(
+        interpolate(event.x, [0, cardWidth], [-10, 10], Extrapolate.CLAMP)
+      );
     })
 
     .onUpdate((event) => {
-      rotateX.value = interpolateY(event);
-      rotateY.value = interpolateX(event);
+      rotateX.value = interpolate(
+        event.y,
+        [0, cardHeight],
+        [10, -10],
+        Extrapolate.CLAMP
+      );
+      rotateY.value = interpolate(
+        event.x,
+        [0, cardWidth],
+        [-10, 10],
+        Extrapolate.CLAMP
+      );
     })
     .onFinalize(() => {
       rotateX.value = withTiming(0);
@@ -73,7 +69,7 @@ const GestureCard: FC<GestureCardProps> = ({ width, height }) => {
 
   return (
     <GestureDetector gesture={gesture}>
-      <View
+      <Animated.View
         style={[
           {
             position: "absolute",
@@ -123,7 +119,7 @@ const GestureCard: FC<GestureCardProps> = ({ width, height }) => {
             ))}
           </View>
         </View>
-      </View>
+      </Animated.View>
     </GestureDetector>
   );
 };
