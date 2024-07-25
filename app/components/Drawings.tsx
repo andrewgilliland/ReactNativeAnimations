@@ -1,17 +1,19 @@
 import {
+  BlurMask,
   Canvas,
   Circle,
   Group,
   LinearGradient,
   Oval,
-  Paint,
   SweepGradient,
   vec,
 } from "@shopify/react-native-skia";
 import React from "react";
 
 export const Drawings = () => {
-  const center = vec(150, 100);
+  const centerX = 150;
+  const centerY = 100;
+  const center = vec(centerX, centerY);
   const rct = { x: 50, y: 50, width: 200, height: 100 };
   const r = 22;
 
@@ -21,25 +23,34 @@ export const Drawings = () => {
 
   return (
     <Canvas
-      style={{ flex: 1, height: 200, borderWidth: 2, borderColor: "red" }}
+      style={{ flex: 1, height: 200, borderWidth: 2, borderColor: "limegreen" }}
     >
-      <Circle c={center} r={r} color={colors.blue[400]}>
+      <Group>
+        <BlurMask blur={5} style="inner" />
         <LinearGradient
-          start={vec(0, 0)}
-          end={vec(50, 50)}
+          start={center}
+          end={vec(centerX + r, centerY + r)}
           colors={[colors.blue[400], colors.blue[700]]}
         />
-      </Circle>
+        <Circle c={center} r={r} />
+      </Group>
       <Group style="stroke" strokeWidth={8}>
         <SweepGradient
           c={center}
           colors={[colors.blue[700], colors.blue[400], colors.blue[700]]}
         />
+        <BlurMask blur={5} style="inner" />
         <Oval rect={rct} />
-        <Group transform={[{ rotate: Math.PI / 3 }]} origin={center}>
+        <Group
+          transform={[{ rotate: Math.PI / 3 }, { scale: -1 }]}
+          origin={center}
+        >
           <Oval rect={rct} />
         </Group>
-        <Group transform={[{ rotate: -Math.PI / 3 }]} origin={center}>
+        <Group
+          transform={[{ rotate: -Math.PI / 3 }, { scale: -1 }]}
+          origin={center}
+        >
           <Oval rect={rct} />
         </Group>
       </Group>
