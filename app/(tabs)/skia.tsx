@@ -14,6 +14,7 @@ import { ElementTracking } from "../components/ElementTracking";
 
 import AnimatedCard from "../components/AnimatedCard";
 import { Drawings } from "../components/Drawings";
+import { Star } from "../components/Star";
 
 export default function SkiaScreen() {
   return (
@@ -53,19 +54,9 @@ export default function SkiaScreen() {
       </Collapsible>
       <Collapsible title="Drawings">
         <Drawings />
+        <Star />
       </Collapsible>
       <Collapsible title="Animations">
-        <ThemedText>
-          This template includes an example of an animated component. The{" "}
-          <ThemedText type="defaultSemiBold">
-            components/HelloWave.tsx
-          </ThemedText>{" "}
-          component uses the powerful{" "}
-          <ThemedText type="defaultSemiBold">
-            react-native-reanimated
-          </ThemedText>{" "}
-          library to create a waving hand animation.
-        </ThemedText>
         {Platform.select({
           ios: (
             <ThemedText>
